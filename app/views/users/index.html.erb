@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User form</h1>
+
+<div class="container">
+<table class="table table-bordered" id="data_table">
+  <thead>
+    <tr>
+      <th colspan="col">FirstName</th>
+      <th colspan="col">LastName</th>
+      <th colspan="col">Email</th>
+      <th colspan="col">DOB</th>
+      <th colspan="col">Houseno</th>
+      <th colspan="col">Street</th>
+      <th colspan="col">City</th>
+      <th colspan="col">State</th>
+      <th colspan="col">Country</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.each do |user| %>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.dob %></td>
+        <td><%= user.useraddress.houseno %></td>
+        <td><%= user.useraddress.street %></td>
+        <td><%= user.useraddress.city %></td>
+        <td><%= user.useraddress.state %></td>
+        <td><%= user.useraddress.country %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+  
