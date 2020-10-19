@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_one :useraddress
   accepts_nested_attributes_for :useraddress
-  # has_one :userphoto
-  # accepts_nested_attributes_for :userphoto
+  has_one :userphoto
+  accepts_nested_attributes_for :userphoto
 
   def useraddress
     super || build_useraddress
@@ -11,4 +11,5 @@ class User < ApplicationRecord
   def userphoto
     super || build_userphoto
   end
+
 end

@@ -1,8 +1,33 @@
 class UsersController < ApplicationController
 	def index
   	@user=User.all
-  	@useraddress=Useraddress.all
-  	@userphoto=Userphoto.all
+   
+  end
+  def show
+    @user=User.all
+   
+    respond_to do |format|
+      format.pdf do
+        pdf =  Prawn::Document.new
+         @user.each do |user| 
+        pdf.text "User Details"
+        pdf.text "firstname :#{user.firstname}"
+        pdf.text "lastname :#{user.lastname}"
+        pdf.text "dob :#{user.dob}"
+        pdf.text "email :#{user.email}"
+        pdf.text "houseno :#{user.useraddress.houseno}"
+        pdf.text "street :#{user.useraddress.street}"
+        pdf.text "city :#{user.useraddress.city}"
+        pdf.text "state :#{user.useraddress.state}"
+        pdf.text "country :#{user.useraddress.country}"
+      end
+        send_data pdf.render,
+          filename: "export.pdf",
+          type: 'application/pdf',
+          disposition: 'inline'
+      end
+    end
+  
   end
 
   def new
