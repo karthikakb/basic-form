@@ -1,5 +1,11 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"  src=" https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 <p id="notice"><%= notice %></p>
- 
+  <% content_for :javascript_includes do %>
+     <%= javascript_include_tag 'datatable', 'data-turbolinks-track': 'reload' %>
+
+    <% end %>
 
 
 <div class="container">
@@ -16,6 +22,7 @@
       <th colspan="col">City</th>
       <th colspan="col">State</th>
       <th colspan="col">Country</th>
+      <th colspan="col">pdf</th>
 
     </tr>
   </thead>
