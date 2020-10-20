@@ -7,8 +7,24 @@
 
     <% end %>
 
+<%= stylesheet_link_tag 'image.css' %>
+<body>
+    
+       
+       <div class="row">
+        
+    <% @user.each do |user| %>
+     <div class="column">
+      <a href="#" onclick="myFunction(this)">
+   <%= image_tag(user.userphoto.attachment.url, alt: 'Image') if user.userphoto.attachment? %>
+   </a>
+     </div>
+   <% end %>
 
-<div class="container">
+  </div>
+
+
+
   <h1>User form</h1>
 <table class="table table-bordered" id="data_table">
   <thead>
@@ -23,6 +39,8 @@
       <th colspan="col">State</th>
       <th colspan="col">Country</th>
       <th colspan="col">pdf</th>
+      <th colspan="col">destory</th>
+
 
     </tr>
   </thead>
@@ -40,10 +58,12 @@
         <td><%= user.useraddress.state %></td>
         <td><%= user.useraddress.country %></td>
         <td><a href="http://localhost:3000/users/show.pdf">Show PDF</a></td>
+        <td><%= link_to 'Destroy', user_path(user) , method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => '  ' %></td>
         
       </tr>
       <% end %>
     </tbody>
   </table>
-</div>
+  </body>
+
   

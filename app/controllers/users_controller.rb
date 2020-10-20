@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 	def index
-  	@user=User.all
-   
+  	@user=User.all 
   end
   def show
     @user=User.all
@@ -27,6 +26,7 @@ class UsersController < ApplicationController
           disposition: 'inline'
       end
     end
+
   
   end
 
@@ -42,6 +42,16 @@ class UsersController < ApplicationController
     redirect_to users_path
     puts @user.errors.inspect
   
+  end
+  def destory
+    p "*******************"
+    @user = User.find(params[:id])
+    p "*************************"
+   p @user.destroy
+   respond_to do |format|
+      format.html { redirect_to users_url notice: 'user was successfully destoryed' }
+      format.js   { render :layout => false }
+   end
   end
   private
     # Use callbacks to share common setup or constraints between actions.

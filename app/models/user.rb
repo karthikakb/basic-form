@@ -12,4 +12,5 @@ class User < ApplicationRecord
     super || build_userphoto
   end
 
+
 end

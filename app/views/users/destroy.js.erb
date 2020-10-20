@@ -1,0 +1,7 @@
+
+console.log("outside bind")
+console.log(this)
+$('.delete_user').bind('ajaxSuccess', function() {
+	console.log("ajax aadsasdadasd")
+   $(this).closest('tr').fadeOut();
+});

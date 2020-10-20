@@ -1,5 +1,5 @@
 
-<div class="container">
+
   <h2>User Details </h2>
   <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
@@ -16,16 +16,16 @@
 
   <div class="field">
     <%= f.label :lastname %>
-    <%= f.text_area :lastname, class: 'form-control' %>
+    <%= f.text_field :lastname, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :dob %>
-    <%= f.text_area :dob, class: 'form-control'  %>
-  </div>
+    <%= f.text_field :dob, class: 'form-control'  %>
+    
 
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_area :email, class: 'form-control'  %>
+    <%= f.text_field :email, class: 'form-control'  %>
   </div>
   <div class="field">
     <%= f.fields_for :useraddress, Useraddress.new do |useraddress_attributes|%>
@@ -49,6 +49,7 @@
     <% end %>
     
   </div>
+ 
   <br>
 
   <div class="actions">
@@ -57,4 +58,3 @@
   </div>
 <% end %>
 
-</div>
